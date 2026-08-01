@@ -1,0 +1,134 @@
+/* style.css */
+
+/* Reset aur Font */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Poora page mobile responsive wrapper banega */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #000000; /* Pure black jese high-end phones ka background hota hai */
+    padding: 20px;
+}
+
+/* Calculator Container - Bilkul Mobile Screen ke size aur shape ka */
+.calculator {
+    width: 100%;
+    max-width: 375px; /* Standard iPhone/Android width */
+    height: 720px;
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Everything pushed down like mobile apps */
+}
+
+/* Display Screen Area */
+/* Display Screen Area */
+/* Display Screen Area */
+.screen {
+    width: 100%;
+    min-height: 160px; /* Thoda sa bada kiya taake dono lines sukoon se aein */
+    padding: 20px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    align-items: flex-end; /* Text ko right side pe push karne ke liye */
+    text-align: right;    /* Pura text right align rahega mobile ki tarah */
+    word-wrap: break-word;
+    word-break: break-all;
+    margin-bottom: 20px;
+}
+
+/* OOPER wala sawal (Jo light show hona chahiye) */
+.previous-operand {
+    color: #888888 !important; /* Ek dam perfect light gray rang */
+    font-size: 1.6rem; 
+    font-weight: 300;
+    min-height: 35px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+/* NEECHE wala main jawab */
+.current-operand {
+    color: #ffffff; 
+    font-size: 4.5rem; 
+    font-weight: 300;
+    line-height: 1;
+    width: 100%;
+}
+/* Buttons ka Grid Layout */
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px; /* Proper spacing jise spacing misclick na ho */
+}
+
+/* Mobile style Gol (Circular) Buttons */
+.btn {
+    aspect-ratio: 1; /* Isse button perfectly square/round rehta hai */
+    font-size: 2rem;
+    font-weight: 400;
+    border: none;
+    border-radius: 50%; /* Perfectly circular buttons jese Apple calculator me hote hain */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.15s ease, transform 0.05s ease;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent; /* Mobile clicks par ajeeb blue box nahi aayega */
+}
+
+/* Mobile Touch / Click Effect */
+.btn:active {
+    transform: scale(0.92); /* Dabane par halke se andar dabega (Haptic feel) */
+    filter: brightness(1.3);
+}
+
+/* Standard Numbers Styling (Dark Gray) */
+.btn.number {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+/* Top Rows (AC, DEL, %) - Light Gray */
+.btn.clear, .btn.delete, .btn.operator[onclick*="%"] {
+    background-color: #a5a5a5;
+    color: #000000;
+    font-size: 1.6rem;
+    font-weight: 500;
+}
+
+/* Right Side Operators (+, -, *, /, =) - Premium Orange */
+.btn.operator, .btn.equals {
+    background-color: #ff9f0a;
+    color: #ffffff;
+    font-size: 2.2rem;
+}
+
+/* Hover state sirf desktop users ke liye (taki desktop pe bhi pyara lage) */
+@media (hover: hover) {
+    .btn.number:hover { background-color: #444444; }
+    .btn.clear:hover, .btn.delete:hover { background-color: #d4d4d4; }
+    .btn.operator:hover, .btn.equals:hover { background-color: #fca823; }
+}
+
+/* 0 Button thoda lamba hota hai standard mobile layouts me */
+.btn.zero {
+    grid-column: span 2;
+    aspect-ratio: auto; /* Circle se capsule shape me lane ke liye */
+    height: 73px; /* Standard button height ke mutabiq */
+    border-radius: 40px;
+    justify-content: flex-start;
+    padding-left: 30px;
+}

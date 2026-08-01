@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Photo Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="brand">
+      <svg class="brand-icon" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="2"/>
+        <path d="M24 6 L30 16 L18 16 Z" fill="currentColor"/>
+        <path d="M42 24 L32 30 L32 18 Z" fill="currentColor"/>
+        <path d="M24 42 L18 32 L30 32 Z" fill="currentColor"/>
+        <path d="M6 24 L16 18 L16 30 Z" fill="currentColor"/>
+      </svg>
+      <span class="eyebrow">Photography Collection</span>
+      <h1>My Gallery</h1>
+      <p class="tagline">A curated collection of moments, framed.</p>
+      <div class="hero-stats">
+        <div class="stat"><strong id="statCount">24</strong><span>Photographs</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><strong>6</strong><span>Categories</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FILTER BAR ===== -->
+  <nav class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="nature">Nature</button>
+    <button class="filter-btn" data-filter="architecture">Architecture</button>
+    <button class="filter-btn" data-filter="travel">Travel</button>
+    <button class="filter-btn" data-filter="people">People</button>
+    <button class="filter-btn" data-filter="food">Food</button>
+    <button class="filter-btn" data-filter="animals">Animals</button>
+  </nav>
+
+  <!-- ===== GALLERY GRID ===== -->
+  <main class="gallery" id="gallery">
+    <!-- Images are injected here by script.js -->
+  </main>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+    <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image">&#8249;</button>
+
+    <div class="lb-content">
+      <div class="lb-frame">
+        <img src="" alt="" id="lbImage">
+      </div>
+      <div class="lb-caption">
+        <span class="lb-title" id="lbTitle"></span>
+        <span class="lb-count" id="lbCount"></span>
+      </div>
+      <div class="lb-thumbs" id="lbThumbs"></div>
+    </div>
+
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</button>
+
+  <footer class="site-footer">
+<p>&copy; 2026 My Gallery — Internship Project</p>  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

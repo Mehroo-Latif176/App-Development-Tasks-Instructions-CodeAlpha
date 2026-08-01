@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="calculator">
+        <!-- Display Screen -->
+        <div class="screen">
+            <div class="previous-operand" id="previous-operand"></div>
+            <div class="current-operand" id="current-operand">0</div>
+        </div>
+
+        <!-- Buttons Grid -->
+        <div class="buttons">
+            <button class="btn clear" onclick="clearScreen()">AC</button>
+            <button class="btn delete" onclick="deleteNumber()">DEL</button>
+            <button class="btn operator" onclick="appendOperator('%')">%</button>
+            <button class="btn operator" onclick="appendOperator('/')">÷</button>
+
+            <button class="btn number" onclick="appendNumber('7')">7</button>
+            <button class="btn number" onclick="appendNumber('8')">8</button>
+            <button class="btn number" onclick="appendNumber('9')">9</button>
+            <button class="btn operator" onclick="appendOperator('*')">×</button>
+
+            <button class="btn number" onclick="appendNumber('4')">4</button>
+            <button class="btn number" onclick="appendNumber('5')">5</button>
+            <button class="btn number" onclick="appendNumber('6')">6</button>
+            <button class="btn operator" onclick="appendOperator('-')">−</button>
+
+            <button class="btn number" onclick="appendNumber('1')">1</button>
+            <button class="btn number" onclick="appendNumber('2')">2</button>
+            <button class="btn number" onclick="appendNumber('3')">3</button>
+            <button class="btn operator" onclick="appendOperator('+')">+</button>
+
+            <button class="btn number zero" onclick="appendNumber('0')">0</button>
+            <button class="btn number" onclick="appendNumber('.')">.</button>
+            <button class="btn equals" onclick="calculate()">=</button>
+        </div>
+    </div>
+
+    <!-- CODE DIRECTLY INSIDE HTML TO AVOID BROWSER CACHE ISSUES -->
+    <script>
+        const previousOperandElement = document.getElementById('previous-operand');
+        const currentOperandElement = document.getElementById('current-operand');
+
+        let currentOperand = '0';
+        let previousOperand = '';
+        let operation = undefined;
+        let shouldResetScreen = false;
+
+        function appendNumber(number) {
+            if (shouldResetScreen) {
+                if (operation === undefined && previousOperand.includes('=')) {
+                    previousOperand = '';
+                }
+                currentOperand = '';
+                shouldResetScreen = false;
+            }
+            if (number === '.' && currentOperand.includes('.')) return;
+            if (currentOperand === '0' && number !== '.') {
+                currentOperand = number;
+            } else {
+                currentOperand += number;
+            }
+            updateDisplay();
+        }
+
+        function appendOperator(op) {
+            if (currentOperand === '' && previousOperand === '') return;
+            
+            if (currentOperand === '' && previousOperand !== '') {
+                if (!previousOperand.includes('=')) {
+                    operation = op;
+                    updateDisplay();
+                    return;
+                }
+            }
+            
+            if (previousOperand.includes('=')) {
+                previousOperand = currentOperand;
+            } else if (previousOperand !== '') {
+                calculate();
+            }
+            
+            operation = op;
+            previousOperand = currentOperand;
+            shouldResetScreen = true; 
+            updateDisplay();
+        }
+
+        function calculate() {
+            let computation;
+            const prev = parseFloat(previousOperand);
+            const current = parseFloat(currentOperand);
+            
+            if (isNaN(prev) || isNaN(current)) return;
+            
+            let displayOperator = operation;
+            if (operation === '*') displayOperator = '×';
+            if (operation === '/') displayOperator = '÷';
+            if (operation === '-') displayOperator = '−';
+            
+            switch (operation) {
+                case '+': computation = prev + current; break;
+                case '-': computation = prev - current; break;
+                case '*': computation = prev * current; break;
+                case '/':
+                    if (current === 0) {
+                        alert("Cannot divide by zero!");
+                        clearScreen();
+                        return;
+                    }
+                    computation = prev / current;
+                    break;
+                case '%': computation = (prev * current) / 100; break;
+                default: return;
+            }
+            
+            previousOperand = `${prev} ${displayOperator} ${current} =`;
+            currentOperand = computation.toString();
+            operation = undefined;
+            shouldResetScreen = true;
+            updateDisplay();
+        }
+
+        function deleteNumber() {
+            if (currentOperand === '0') return;
+            if (currentOperand.length === 1) {
+                currentOperand = '0';
+            } else {
+                currentOperand = currentOperand.slice(0, -1);
+            }
+            updateDisplay();
+        }
+
+        function clearScreen() {
+            currentOperand = '0';
+            previousOperand = '';
+            operation = undefined;
+            updateDisplay();
+        }
+
+        function updateDisplay() {
+            currentOperandElement.innerText = currentOperand;
+            
+            let displayOperator = operation;
+            if (operation === '*') displayOperator = '×';
+            if (operation === '/') displayOperator = '÷';
+            if (operation === '-') displayOperator = '−';
+
+            if (operation != null) {
+                previousOperandElement.innerText = `${previousOperand} ${displayOperator}`;
+            } else if (previousOperand !== '') {
+                previousOperandElement.innerText = previousOperand;
+            } else {
+                previousOperandElement.innerText = '';
+            }
+        }
+
+        window.addEventListener('keydown', e => {
+            if (e.key >= 0 && e.key <= 9) appendNumber(e.key);
+            if (e.key === '.') appendNumber('.');
+            if (e.key === '=') calculate();
+            if (e.key === 'Enter') { e.preventDefault(); calculate(); }
+            if (e.key === 'Backspace') deleteNumber();
+            if (e.key === 'Escape') clearScreen();
+            if (e.key === '+') appendOperator('+');
+            if (e.key === '-') appendOperator('-');
+            if (e.key === '*') appendOperator('*');
+            if (e.key === '/') { e.preventDefault(); appendOperator('/'); }
+            if (e.key === '%') appendOperator('%');
+        });
+    </script>
+</body>
+</html>

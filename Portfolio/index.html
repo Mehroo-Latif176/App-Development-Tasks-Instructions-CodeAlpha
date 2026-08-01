@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header class="navbar">
+<a href="#hero" class="logo">ML<span>.</span></a>
+  <nav class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="hero">
+  <div class="hero-content reveal">
+    <p class="eyebrow">— Portfolio</p>
+    <h1>Hi, I'm <span class="highlight">Mehroo Latif</span><span class="underline-svg"></span></h1>
+    <p class="tagline" id="typedText"></p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <a href="#about" class="scroll-cue" aria-label="Scroll down">↓</a>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section">
+  <h2 class="section-title reveal">About Me</h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>
+        <!-- Apna intro yahan likhein -->
+        I'm a passionate developer who loves turning ideas into clean,
+        functional products. I enjoy solving problems, learning new
+        technologies, and building things that make a difference.
+      </p>
+      <p>
+        <!-- Ek aur paragraph — apna background, interests, goals -->
+        Currently focused on web development, always curious about
+        design and how good software should feel to use.
+      </p>
+      <div class="about-stats">
+        <div class="stat-card">
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">2+</span>
+          <span class="stat-label">Years Learning</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-num">5+</span>
+          <span class="stat-label">Tools Mastered</span>
+        </div>
+      </div>
+    </div>
+   
+</section>
+
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="section alt-bg">
+  <h2 class="section-title reveal">Skills</h2>
+  <div class="skills-grid">
+  <div class="skill-card reveal">
+    <h3>HTML</h3>
+    <div class="bar"><div class="fill" style="--w:90%"></div></div>
+  </div>
+  <div class="skill-card reveal">
+    <h3>CSS</h3>
+    <div class="bar"><div class="fill" style="--w:85%"></div></div>
+  </div>
+  <div class="skill-card reveal">
+    <h3>JavaScript</h3>
+    <div class="bar"><div class="fill" style="--w:50%"></div></div>
+  </div>
+  <div class="skill-card reveal">
+    <h3>Python (Basics)</h3>
+    <div class="bar"><div class="fill" style="--w:70%"></div></div>
+  </div>
+  <div class="skill-card reveal">
+    <h3>React (Learning)</h3>
+    <div class="bar"><div class="fill" style="--w:35%"></div></div>
+  </div>
+  <div class="skill-card reveal">
+    <h3>Git</h3>
+    <div class="bar"><div class="fill" style="--w:75%"></div></div>
+  </div>
+  <div class="skill-card reveal">
+    <h3>GitHub</h3>
+    <div class="bar"><div class="fill" style="--w:75%"></div></div>
+  </div>
+</div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="projects" class="section">
+  <h2 class="section-title reveal">Projects</h2>
+ <div class="projects-grid">
+
+  <!-- ===== SEMESTER PROJECTS ===== -->
+
+  <div class="project-card reveal">
+    <div class="project-inner">
+      <h3>Hostel Management System</h3>
+      <p class="project-tags">1st Semester</p>
+      <p class="project-desc">
+        A system to manage hostel operations including student records,
+        room allocation, and related administrative tasks.
+      </p>
+    </div>
+  </div>
+
+  <div class="project-card reveal">
+    <div class="project-inner">
+      <h3>Hostel Management System (OOP)</h3>
+      <p class="project-tags">2nd Semester · OOP</p>
+      <p class="project-desc">
+        Rebuilt using Object-Oriented Programming principles, focusing on
+        classes, objects, and modular design for hostel operations.
+      </p>
+    </div>
+  </div>
+
+  <div class="project-card reveal">
+    <div class="project-inner">
+      <h3>Hostel Management System (DBMS)</h3>
+      <p class="project-tags">2nd Semester · DBMS</p>
+      <p class="project-desc">
+        Database-driven version of the hostel management system, focused
+        on structured data storage, queries, and relational design.
+      </p>
+    </div>
+  </div>
+
+  <div class="project-card reveal">
+    <div class="project-inner">
+      <h3>Mess Management System</h3>
+      <p class="project-tags">3rd Semester · Software Engineering</p>
+      <p class="project-desc">
+        A system designed following software engineering principles to
+        manage mess operations, meal planning, and records.
+      </p>
+    </div>
+  </div>
+
+  <div class="project-card reveal">
+    <div class="project-inner">
+      <h3>AlgoEscape</h3>
+      <p class="project-tags">3rd Semester · DSA</p>
+      <p class="project-desc">
+        A game built to demonstrate data structures and algorithms
+        concepts in an interactive, escape-room style format.
+      </p>
+    </div>
+  </div>
+
+  <div class="project-card reveal">
+    <div class="project-inner">
+      <h3>Nova AI Manager</h3>
+      <p class="project-tags">4th Semester · AI</p>
+      <p class="project-desc">
+        An AI-based manager that reminds users of their weekly timetable
+        and helps organize schedules automatically.
+      </p>
+    </div>
+  </div>
+
+  <div class="project-card reveal">
+    <div class="project-inner">
+      <h3>PackTrack</h3>
+      <p class="project-tags">4th Semester · ADBMS</p>
+      <p class="project-desc">
+        An advanced database management system project focused on
+        tracking and managing package/inventory data efficiently.
+      </p>
+    </div>
+  </div>
+
+  <!-- ===== OTHER PROJECTS ===== -->
+
+  <div class="project-card reveal">
+    <div class="project-inner">
+      <h3>Career Counselling System</h3>
+      <p class="project-tags">Python</p>
+      <p class="project-desc">
+        A career guidance tool built with Python that helps users
+        find suitable career paths based on their interests and skills.
+      </p>
+    </div>
+  </div>
+
+  <div class="project-card reveal">
+    <div class="project-inner">
+      <h3>Amazon Clone</h3>
+      <p class="project-tags">HTML · CSS · JavaScript</p>
+      <p class="project-desc">
+        A front-end clone of Amazon's website, recreating its layout,
+        product listings, and responsive design.
+      </p>
+    </div>
+  </div>
+
+  <div class="project-card reveal">
+    <div class="project-inner">
+      <h3>Image Gallery</h3>
+      <p class="project-tags">HTML · CSS · JavaScript</p>
+      <p class="project-desc">
+        A responsive image gallery with smooth hover effects and
+        filtering, showcasing images in a clean grid layout.
+      </p>
+    </div>
+  </div>
+
+</div>
+</section>
+
+<!-- ===== RESUME ===== -->
+<section id="resume" class="section alt-bg">
+  <h2 class="section-title reveal">Resume</h2>
+  <div class="resume-wrap reveal">
+    <a href="your-resume.pdf" download class="btn btn-primary">Download Resume (PDF)</a>
+
+    <div class="timeline">
+  <div class="timeline-item">
+    <span class="timeline-date">2024 — Present</span>
+    <h4>BS Computer Science</h4>
+    <p>University of Engineering and Technology (UET), Lahore — Currently in 4th semester (2026) with a CGPA of 3.4, working on various academic projects in Python, DBMS, AI, and software engineering.</p>
+  </div>
+  <div class="timeline-item">
+    <span class="timeline-date">2022 — 2024</span>
+    <h4>Intermediate</h4>
+    <p>Completed intermediate studies in 2024, building the foundation for pursuing Computer Science at university level.</p>
+  </div>
+</div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section">
+  <h2 class="section-title reveal">Get In Touch</h2>
+  <div class="contact-grid reveal">
+    <div class="contact-info">
+      <p>Have a project in mind or just want to say hi? My inbox is always open.</p>
+      <ul>
+        <li>📧 mehroolatif55@gmail.com</li>
+        <li>📍 Lahore, Pakistan</li>
+        <li>🔗 linkedin.com/in/Mehroo-Latif</li>
+        <li>💻 github.com/Mehroo-Latif</li>
+      </ul>
+    </div>
+    
+    <form class="contact-form" action="https://formspree.io/f/yourFormID" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>© 2026 Mehroo Latif. To be a Software Engineer.</p>
+</footer>
+
+<button id="backToTop" aria-label="Back to top">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
