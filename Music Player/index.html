@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Musify - Music Player</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 512 512%22><path fill=%22%23ffffff%22 d=%22M499.1 6.3c8.1 6 12.9 15.6 12.9 25.7v72V368c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V147L192 223.8V432c0 44.2-43 80-96 80s-96-35.8-96-80s43-80 96-80c11.2 0 22 1.6 32 4.6V200 128c0-14.1 9.3-26.6 22.8-30.7l320-96c9.7-2.9 20.2-1.1 28.3 5z%22/></svg>">
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Dynamic Background -->
+    <div class="background-container" id="bg-container"></div>
+    
+    <div class="app-container">
+        
+        <!-- Header / Logo -->
+        <div class="header">
+            <i class="fas fa-music"></i> Musify
+        </div>
+
+        <!-- Carousel -->
+        <div class="carousel-container">
+            <div class="carousel" id="carousel">
+                <!-- Cards injected via JS -->
+            </div>
+        </div>
+
+        <!-- Subtitle -->
+        <div class="subtitle" id="main-subtitle">
+            Song Title
+        </div>
+
+        <!-- Control Bar -->
+        <div class="control-bar-wrapper">
+            <div class="control-bar">
+                
+                <div class="controls-left">
+                    <button class="icon-btn" id="prev-btn"><i class="fas fa-backward-step"></i></button>
+                    <button class="icon-btn play-pause" id="play-btn"><i class="fas fa-play"></i></button>
+                    <button class="icon-btn" id="next-btn"><i class="fas fa-forward-step"></i></button>
+                </div>
+
+                <div class="mini-player" id="mini-player">
+                    <img src="" id="mini-cover" alt="cover">
+                    <div class="mini-info">
+                        <div class="mini-title" id="mini-title">Title</div>
+                        <div class="mini-artist" id="mini-artist">Artist</div>
+                    </div>
+                    <div class="visualizer" id="visualizer">
+                        <span></span><span></span><span></span><span></span>
+                    </div>
+                    <div class="progress-container" id="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                </div>
+
+                <div class="controls-right">
+                    <button class="icon-btn" id="cast-btn" title="Cast"><i class="fas fa-podcast"></i></button>
+                    <button class="icon-btn" id="queue-btn" title="Queue"><i class="fas fa-stream"></i></button>
+                    <div class="volume-wrapper">
+                        <button class="icon-btn" id="mute-btn"><i class="fas fa-volume-up"></i></button>
+                        <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.01" value="1">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            © 2026 - Apps Edit / Photoeditor & Pixellab
+        </div>
+        
+        <!-- Playlist / Queue Overlay -->
+        <div class="playlist-overlay" id="playlist-overlay">
+            <div class="playlist-header">
+                <h3>Queue</h3>
+                <button class="icon-btn" id="close-playlist"><i class="fas fa-times"></i></button>
+            </div>
+            <ul id="playlist-list" class="playlist-list"></ul>
+        </div>
+        
+        <!-- Toast Notification -->
+        <div class="toast" id="toast">Notification</div>
+        
+    </div>
+
+    <!-- Hidden audio element -->
+    <audio id="audio"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
